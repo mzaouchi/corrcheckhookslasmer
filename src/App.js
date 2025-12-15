@@ -3,6 +3,7 @@ import './App.css';
 import NavMovie from './Components/NavMovie';
 import ListMovies from './Components/ListMovies';
 import AddMovie from './Components/AddMovie';
+import FilterMovies from './Components/FilterMovies';
 
 function App() {
 
@@ -14,11 +15,15 @@ function App() {
 
   ])
 
+  const [fiTitle, setFiTitle] = useState('')
+  const [njoum, setNjoum] = useState(0)
+
   return (
     <div>
       <NavMovie/>
+      <FilterMovies setFiTitle={setFiTitle} setNjoum={setNjoum} fiTitle={fiTitle} njoum={njoum}/>
       <AddMovie movies={movies} setMovies={setMovies}/>
-      <ListMovies movies={movies}/>
+      <ListMovies movies={movies} fiTitle={fiTitle} njoum={njoum}/>
     </div>
   );
 }
